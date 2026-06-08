@@ -1,7 +1,15 @@
 // src/controllers/organizadorController.js
 import { getDb } from '../config/database.js';
 
+/**
+ * Controlador para manejar las operaciones CRUD de ORGANIZADOR
+ */
 export const organizadorController = {
+    /**
+     * Obtiene todos los organizadores
+     * @route GET /api/organizadores
+     * @returns {Array} Lista de organizadores
+     */
     async getAll(req, res) {
         try {
             const db = getDb();
@@ -12,6 +20,12 @@ export const organizadorController = {
         }
     },
 
+    /**
+     * Obtiene un organizador por su ID
+     * @route GET /api/organizadores/:id
+     * @param {string} id - ID del organizador
+     * @returns {Object} Datos del organizador
+     */
     async getById(req, res) {
         try {
             const { id } = req.params;
@@ -26,6 +40,15 @@ export const organizadorController = {
         }
     },
 
+    /**
+     * Crea un nuevo organizador
+     * @route POST /api/organizadores
+     * @param {Object} req.body - Datos del organizador
+     * @param {string} req.body.nombre - Nombre del organizador
+     * @param {string} req.body.email - Email del organizador
+     * @param {string} req.body.telefono - Teléfono del organizador
+     * @returns {Object} Organizador creado con su ID
+     */
     async create(req, res) {
         try {
             const { nombre, email, telefono } = req.body;
@@ -44,6 +67,13 @@ export const organizadorController = {
         }
     },
 
+    /**
+     * Actualiza un organizador existente
+     * @route PUT /api/organizadores/:id
+     * @param {string} id - ID del organizador a actualizar
+     * @param {Object} req.body - Datos a actualizar
+     * @returns {Object} Mensaje de confirmación
+     */
     async update(req, res) {
         try {
             const { id } = req.params;
@@ -61,6 +91,12 @@ export const organizadorController = {
         }
     },
 
+    /**
+     * Elimina un organizador
+     * @route DELETE /api/organizadores/:id
+     * @param {string} id - ID del organizador a eliminar
+     * @returns {Object} Mensaje de confirmación
+     */
     async delete(req, res) {
         try {
             const { id } = req.params;

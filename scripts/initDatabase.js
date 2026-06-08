@@ -1,4 +1,15 @@
 // scripts/initDatabase.js
+/**
+ * Script para inicializar la base de datos SQLite
+ * 
+ * Este script:
+ * 1. Crea todas las tablas necesarias (si no existen)
+ * 2. Inserta datos de ejemplo para pruebas
+ * 3. Verifica la cantidad de registros insertados
+ * 
+ * Ejecutar con: npm run init-db
+ */
+
 import Database from 'better-sqlite3';
 import dotenv from 'dotenv';
 
